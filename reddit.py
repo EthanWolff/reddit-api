@@ -1,6 +1,6 @@
 import praw
 import urllib.request
-import time
+from time import sleep
 
 # Small program to backup saved posts or backup from a subreddit
 
@@ -43,6 +43,6 @@ class Reddit(object):
                 # Checks if the post has not been seen before
                 if (not (submission.id in seen_submissions)) and submission.score > min_score:
                     seen_submissions.add(submission.id)
-                    save_submission(submission, file_types, folders)
+                    self.save_submission(submission, file_types, folders)
             ticks -= 1
             sleep(60)
