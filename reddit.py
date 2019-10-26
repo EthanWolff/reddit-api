@@ -32,7 +32,7 @@ class Reddit(object):
 
     def download_hot(self, subreddit_name, file_types = ["jpg", "png"], folders = { "": "" }, limit = None, min_score = 0):
         # Saves all the submissions with more upvotes than min_score
-        self.save_submissions(filter(lambda submission: submission.ups > min_score, self.reddit.subreddit(subreddit).hot(limit=limit)), file_types, folders)
+        self.save_submissions(filter(lambda submission: submission.ups > min_score, self.reddit.subreddit(subreddit_name).hot(limit=limit)), file_types, folders)
 
     def stream_hot(self, subreddit_name, ticks = 100, tick_limit = 20, file_types = ["jpg", "png"], folders = { "": "" }, min_score = 0):
         # Streams submissions from a subreddit and stores the submissions with more upvotes than min_score
